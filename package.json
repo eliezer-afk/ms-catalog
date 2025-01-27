@@ -4,7 +4,8 @@
   "description": "proyecto con Express y TypeScript",
   "main": "index.js",
   "scripts": {
-    "test":"jest --detectOpenHandles",
+    "build": "tsc",
+    "test": "jest --detectOpenHandles",
     "test:coverage": "npm run pretest && jest --detectOpenHandles --coverage",
     "dev": "nodemon --exec ts-node src/index.ts",
     "pretest": "ts-node ./src/data --clear"
@@ -14,6 +15,7 @@
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.12",
+    "@types/redis": "^4.0.10",
     "@types/supertest": "^6.0.2",
     "jest": "^29.7.0",
     "nodemon": "^3.1.4",
@@ -29,6 +31,7 @@
     "express-validator": "^7.1.0",
     "pg": "^8.12.0",
     "pg-hstore": "^2.3.4",
+    "redis": "^4.7.0",
     "sequelize": "^6.37.3",
     "sequelize-typescript": "^2.1.6"
   }
