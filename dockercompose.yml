@@ -1,16 +1,27 @@
+version: "3.8"
 services:
+  db:
+    image: postgres:latest
+    container_name: catalogo-contenedor
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 4884
+      POSTGRES_DB: Microservicios
+    ports:
+      - "5432:5432"
+    networks:
+      - ms-network
   ms-catalog:
-    image: ms-catalog:latest
     build:
-      context: .
+      context: ./ms-catalog
       dockerfile: Dockerfile
+    image: ms-catalog:latest
     ports:
       - "8081:8080"
     environment:
-      - SPRING_PROFILES_ACTIVE=dev
+      - NODE_ENV=development
+    volumes:
+      - ./ms-catalog:/usr/src/app
+      - /usr/src/app/node_modules
     networks:
       - ms-network
-
-networks:
-  ms-network:
-    driver: bridge

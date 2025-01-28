@@ -2,10 +2,10 @@ import { DataTypes, Model } from 'sequelize';
 import sequelize from '../config/db';
 
 class Product extends Model {
-    public id!: number;
-    public nombre!: string;
-    public precio!: number;
-    public activado!: boolean;
+    private id!: number;
+    private nombre!: string;
+    private precio!: number;
+    private activado!: boolean;
 }
 
 Product.init({
